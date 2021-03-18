@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 9999;
 
 const serverURI = 'http://localhost:' + PORT
 const mongoURI = process.env.MONGO_URI;
+// 'mongodb+srv://JRL:rally@cluster0.bkhg7.mongodb.net/REST?retryWrites=true&w=majority'
 
 app.listen(PORT, () => console.log('Server running at:' + serverURI));
 
