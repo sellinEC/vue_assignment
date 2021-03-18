@@ -1,4 +1,5 @@
 <template>
+<div class="container">
   <div class="card details">
     <h1>Product details</h1>
     <p>{{ product.name }}</p>
@@ -6,6 +7,7 @@
     <p>{{ product.desc }}</p>
     <p>{{ product.price }}</p>
     <img :src="product.image" alt="">
+    </div>
   </div>
 </template>
 

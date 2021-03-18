@@ -18,6 +18,7 @@
     <p class="card-text">
       ${{product.price}}
     </p>
+    <button class="btn">BUY</button>
     
   </div>
  </div>

@@ -6,9 +6,9 @@
   
   <div class="card-body">
     <div class="dropdown">
-  <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+  <router-link to="/cart" class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
     Kundvagn => <i class="fas fa-shopping-cart"> </i> 
-  </a>
+  </router-link>
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <li><a class="dropdown-item" href="#">Action</a></li>

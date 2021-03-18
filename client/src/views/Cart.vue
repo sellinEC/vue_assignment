@@ -10,6 +10,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.cart {
+  min-height: 60vh
+}
 </style>

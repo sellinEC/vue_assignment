@@ -16,6 +16,7 @@
       </div>
     </div>
   </div>
+  <router-link to="/cart"><i class="fas fa-shopping-cart"></i></router-link>
 </nav>
 </template>
 
@@ -25,6 +26,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.fas {
+  color: green;
+  font-size: 1.5rem;
+}
 </style>
