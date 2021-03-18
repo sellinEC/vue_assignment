@@ -1,17 +1,17 @@
 <template>
 <div class="products">
-  <div v-for="product in products" :key="product.id" class="output">
-  <h1>{{product.name}}</h1>
-  <h2>{{product.desc}}</h2>
-  <p>Detaljer     <router-link to="/products/details/hej">products</router-link></p>
-  </div>
+  <Product v-for="product in products" :key="product.id" :product="product"  />
 </div>
 </template>
 
 <script>
 import {mapActions, mapGetters} from 'vuex'
+import Product from '../components/Product'
 export default {
   name: 'Products',
+  component: {
+    Product
+  },
   computed: {
     ...mapGetters(['products'])
   },
