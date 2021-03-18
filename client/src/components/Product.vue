@@ -1,5 +1,5 @@
 <template>
- <div class="product">
+ <router-link :to="'/products/details/' + product._id"><div class="product">
 <div class="card">
   <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
     <img
@@ -16,22 +16,18 @@
       {{product.short}}
     </p>
     <p class="card-text">
-      {{product.price}}:-
+      ${{product.price}}
     </p>
     
   </div>
-      <div class="d-flex justify-content-between">
-    <a href="#!" class="btn btn-primary mx-1">Buy</a>
-    <a @click="toggleModal" href="#!" class="btn btn-primary mx-1">Details</a>
-    </div>
  </div>
  </div>
+ </router-link>
 </template>
 
 <script>
 export default {
-  name: "Product",
-  props: ['product', 'id']
+  props: ['product'],
 }
 </script>
 
