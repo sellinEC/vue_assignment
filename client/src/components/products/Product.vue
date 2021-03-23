@@ -20,18 +20,27 @@
     <p class="card-text">
       ${{product.price}}
     </p>
-    <button class="btn">BUY</button>
     
   </div>
  </div>
  </div>
  </router-link>
+    <button class="btn" @click="addItemToCart({product, quantity})">BUY</button>
  </div>
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
   props: ['product'],
+  data() {
+    return {
+      quantity: 1
+    }
+  },
+  methods: {
+    ...mapActions(['addItemToCart'])
+  } 
 }
 </script>
 
