@@ -1,6 +1,6 @@
 <template>
-  <div class="cart">
-    Cart!
+  <div class="kassa">
+    Kassa!
   </div>
 </template>
 

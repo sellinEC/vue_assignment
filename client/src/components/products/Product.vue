@@ -1,10 +1,12 @@
 <template>
- <router-link :to="'/products/details/' + product._id"><div class="product">
-<div class="card">
+<div class="container  hover-shadow p-4">
+ <router-link :to="'/products/details/' + product._id">
+<div class="product">
+<div class="">
   <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
     <img
       :src="product.image"
-      class="img-fluid"
+      class="img-fluid image-width"
     />
     <a href="#!">
       <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
@@ -24,6 +26,7 @@
  </div>
  </div>
  </router-link>
+ </div>
 </template>
 
 <script>
@@ -32,6 +35,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.image-width{
+  max-width: 200px;
+}
 </style>

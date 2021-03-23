@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import Products from '../views/Products.vue'
 import Details from '../views/Details.vue'
 import fourofour from '../views/404.vue'
-import Cart from '../views/Cart.vue'
+import Kassa from '../views/Kassa.vue'
 
 Vue.use(VueRouter)
 
@@ -20,9 +20,9 @@ const routes = [
     component: Products
   },
   {
-    path: '/cart',
-    name: 'Cart',
-    component: Cart
+    path: '/kassa',
+    name: 'Kassa',
+    component: Kassa
   },
   {
     path: '/products/details/:id',

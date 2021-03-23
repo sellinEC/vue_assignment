@@ -6,7 +6,7 @@
     <p>{{ product.short }}</p>
     <p>{{ product.desc }}</p>
     <p>{{ product.price }}</p>
-    <img :src="product.image" alt="">
+    <img :src="product.image" alt="" class="image-width">
     </div>
   </div>
 </template>
@@ -26,5 +26,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.image-width {
+  max-width: 500px;
+  margin: auto;
+
+}
 </style>
