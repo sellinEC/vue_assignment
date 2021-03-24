@@ -30,6 +30,7 @@ export default {
 
   .home {
     min-height: 701px;
+    border: solid red; /* !!! Provisorisk border !!!  */
   }
   .sign {
     max-height: 600px; 

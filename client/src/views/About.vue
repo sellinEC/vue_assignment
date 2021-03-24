@@ -7,6 +7,7 @@
 <style scoped>
 .about {
   min-height: 701px;
+  border: solid red 5px; /* !!! Provisorisk border !!!  */
 }
 .pic {
   max-height: 600px;

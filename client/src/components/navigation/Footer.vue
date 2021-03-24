@@ -29,5 +29,7 @@ export default {
 </script>
 
 <style> 
-
+.card {
+  border: solid red; /* !!! Provisorisk border !!!  */
+}
 </style>

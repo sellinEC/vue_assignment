@@ -106,7 +106,11 @@ export default {
 </script>
 
 <style scoped>
-.fas {
+.navbar .nav-item {
+  border: solid red; /* !!! Provisorisk border !!!  */
+}
+
+.fa-shopping-cart {
   color: green;
   font-size: 1.5rem;
 }

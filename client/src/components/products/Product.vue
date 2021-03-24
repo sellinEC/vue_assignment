@@ -47,6 +47,9 @@ export default {
 </script>
 
 <style scoped>
+div {
+  border: solid red 1px; /* !!! Provisorisk border !!!  */
+}
 .image-width{
   max-width: 200px;
 }
