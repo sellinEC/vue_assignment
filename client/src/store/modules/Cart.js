@@ -4,7 +4,7 @@ export default {
     cart: []
   },
   getters: {
-    shoppingCart: state => {
+    cart: state => {
       return state.cart
     }
   },
