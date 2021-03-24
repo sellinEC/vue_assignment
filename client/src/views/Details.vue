@@ -8,17 +8,23 @@
     <p>{{ product.price }}</p>
     <img :src="product.image" alt="" class="image-width">
     </div>
+    <button class="btn" @click="addItemToCart({product, quantity})">BUY</button>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
+  data() {
+    return {
+      quantity: 1
+    }
+  },
   computed: {
     ...mapGetters(['product']),
   },
   methods: {
-    ...mapActions(['getProduct']),
+    ...mapActions(['getProduct', 'addItemToCart']),
   },
   mounted() {
     this.getProduct(this.$route.params.id)

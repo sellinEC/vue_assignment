@@ -2,8 +2,8 @@
   <div class="cart">
     
       <div class="cart-item">
-        <CartItem />
-      <div class="p-2 d-flex justify-content-center align-items-center">
+        <CartItem v-for="item in cart" :key="item.product._id" :item="item" />
+      <div v-if="cart.length < 1" class="p-2 d-flex justify-content-center align-items-center">
         Din kundvagn är tom.
       </div>
       <div class="dropdown-divider"></div>
@@ -24,11 +24,14 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import CartItem from './CartItem'
 export default {
   components: {
     CartItem
+  },
+  computed: {
+    ...mapGetters(['cart'])
   }
 }
 </script>
