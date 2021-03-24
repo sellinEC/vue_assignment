@@ -1,5 +1,5 @@
 <template>
-  <div class="404">
+  <div class="fyraNollFyra">
     <h1>404</h1>
     <p>Not found</p>
   </div>
@@ -12,5 +12,7 @@ export default {
 </script>
 
 <style>
-
+.fyraNollFyra {
+  min-height: 701px;
+}
 </style>

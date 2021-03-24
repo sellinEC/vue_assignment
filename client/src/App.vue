@@ -28,6 +28,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+body {
+  
+}
 
 #nav {
   padding: 30px;
@@ -40,5 +43,10 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.btn:active {  /* Styling animation för alla knappar  */
+    
+    transform: translateY(5px);
 }
 </style>

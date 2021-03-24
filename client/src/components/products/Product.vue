@@ -21,6 +21,8 @@
       ${{product.price}}
     </p>
     
+    
+
   </div>
  </div>
  </div>

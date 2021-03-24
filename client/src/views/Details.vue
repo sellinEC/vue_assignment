@@ -5,10 +5,10 @@
     <p>{{ product.name }}</p>
     <p>{{ product.short }}</p>
     <p>{{ product.desc }}</p>
-    <p>{{ product.price }}</p>
+    <p>${{ product.price }}</p>
     <img :src="product.image" alt="" class="image-width">
     </div>
-    <button class="btn" @click="addItemToCart({product, quantity})">BUY</button>
+    <button class="btn m-3 " @click="addItemToCart({product, quantity})">Add to Cart</button>
   </div>
 </template>
 
@@ -37,5 +37,10 @@ export default {
   max-width: 500px;
   margin: auto;
 
+}
+.btn {
+  width: 150px;
+  background-color: green;
+  color: white;
 }
 </style>

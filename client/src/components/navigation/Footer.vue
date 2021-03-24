@@ -1,13 +1,13 @@
 <template>
-   <div class="card bgcolor">
-  <div class="card-footer">
+  <div class="card bg-info"> <!--  Styling footer color  -->
+  <div class="card-footer shadow"> <!--  Styling footer reklambanner  -->
     <img src="../../assets/images/footer.png" alt="Reklam">
   </div>
   
   <div class="card-body">
     <div class="dropdown">
   <router-link to="/cart" class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-    Kundvagn => <i class="fas fa-shopping-cart"> </i> 
+    Till Kassan <i class="fas fa-shopping-cart"> </i> 
   </router-link>
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -28,6 +28,6 @@ export default {
 }
 </script>
 
-<style>
+<style> 
 
 </style>

@@ -5,7 +5,7 @@
   <div class="container">
     <!-- Navbar brand -->
     <router-link class="navbar-brand" to="/">
-      <i class="fab fa-shopware"></i> lolshop.se
+      <i class="fas fa-gopuram"></i> HOUSE OF POWER <!-- Byt logga vid styling  -->
     </router-link>
 
     <!-- Toggle button -->

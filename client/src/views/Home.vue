@@ -1,10 +1,15 @@
 <template>
   <div class="home">
 
-    <h1>Welcome Home</h1>
-    <router-link to="/about">about</router-link>
+    <h1>HOMEPAGE under construction <br>
+    Här ska det snurra lite produkter snart. Kanske i en karusell?</h1>
+    <img class="sign" src="../assets/images/VG.png" alt="Reklam">
+    
+    <!-- Länkar, behövs ej -->
+    <!-- <router-link to="/about">about</router-link>
     <router-link to="/products">products</router-link>
-    <router-link to="/cart">Cart</router-link>
+    <router-link to="/cart">Cart</router-link> -->
+
   </div>
 </template>
 
@@ -18,3 +23,15 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+/* Styling för Bild och DIV  */
+
+  .home {
+    min-height: 701px;
+  }
+  .sign {
+    max-height: 600px; 
+  }
+</style>

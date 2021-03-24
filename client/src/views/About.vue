@@ -1,5 +1,15 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <img class="pic" src="../assets/images/RAAR.jpg" alt="">
   </div>
 </template>
+
+<style scoped>
+.about {
+  min-height: 701px;
+}
+.pic {
+  max-height: 600px;
+}
+</style>
+
