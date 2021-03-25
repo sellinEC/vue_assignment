@@ -50,6 +50,8 @@ export default {
             if(res.status === 200) {
               
               localStorage.setItem('token', res.data.token)
+              // localStorage.setItem('user', res.data)
+              console.log(res.data)
               commit('SET_USER', res.data.token)
   
               if(payload.route) {
