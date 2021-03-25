@@ -5,6 +5,8 @@ import Products from '../views/Products.vue'
 import Details from '../views/Details.vue'
 import fourofour from '../views/404.vue'
 import Kassa from '../views/Kassa.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +17,16 @@ const routes = [
     component: Home
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  {
     path: '/products',
     name: 'Products',
     component: Products,
@@ -23,7 +35,8 @@ const routes = [
   {
     path: '/kassa',
     name: 'Kassa',
-    component: Kassa
+    component: Kassa,
+    meta: { authorize: true }
   },
   {
     path: '/products/details/:id',
@@ -49,6 +62,22 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const { authorize } = to.meta
+  const token = localStorage.getItem('token')
+
+  if(authorize) {
+
+    if(!token) {
+      next({path: '/login', query: { redirect: to.fullPath }})
+    } else {
+      next()
+    }
+
+  }
+  next()
 })
 
 export default router

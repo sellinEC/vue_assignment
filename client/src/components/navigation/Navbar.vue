@@ -63,7 +63,7 @@
           </ul>
         </li>
 
-        <!-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -72,13 +72,20 @@
             data-mdb-toggle="dropdown"
             aria-expanded="false"
           >
-            <i class="fas fa-user"></i>
+            <i class="fab fa-accessible-icon"></i>
           </a>
 
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             USER SETTINGS
           </ul>
-        </li> -->
+        </li>
+        <li class="nav-item" v-if="!loggedIn">
+          <router-link class="nav-link" to="/login">Login</router-link>
+        </li>
+        <li class="nav-item" v-if="loggedIn">
+          <a  href="#" class="nav-link pb-0" @click="logout">Logout</a>
+        </li>
+
 
       </ul>
 
@@ -92,7 +99,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 import Cart from '../cart/Cart.vue'
 export default {
   name: 'Navbar',
@@ -100,7 +107,11 @@ export default {
     Cart
   },
   computed: {
-    ...mapGetters(['cartCount'])
+    ...mapGetters(['cartCount', 'loggedIn'])
+
+  },
+  methods: {
+    ...mapActions(['logout'])
   }
 }
 </script>

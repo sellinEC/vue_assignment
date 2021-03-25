@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
   state: {
-    products: []
+    products: [] 
   },
   getters: {
     products: state => state.products
