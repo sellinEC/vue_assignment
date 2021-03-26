@@ -4,7 +4,8 @@ import router from '@/router'
 export default {
     state: {
       userToken: null,
-      loggedIn: false
+      loggedIn: false,
+      userEmail: null
     },
     getters: {
       loggedIn: state => state.loggedIn
@@ -33,6 +34,9 @@ export default {
         catch(err) {
           console.log(err)
         }
+      },
+      SAVE_EMAIL: (state, email) => {
+        state.userEmail = email
       }
     },
     actions: {
@@ -50,7 +54,7 @@ export default {
             if(res.status === 200) {
               
               localStorage.setItem('token', res.data.token)
-              // localStorage.setItem('user', res.data)
+              // localStorage.setItem('user', res.data._id)
               console.log(res.data)
               commit('SET_USER', res.data.token)
   
@@ -61,6 +65,7 @@ export default {
               }
             }
           })
+
       },
       checkUser: ({commit}) => {
         commit('CHECK_USER')
@@ -72,6 +77,9 @@ export default {
   
           commit('SET_USER', null)
         }
+      },
+      saveEmail: ({commit}, email) => {
+        commit('SAVE_EMAIL', email)
       }
     }
   }

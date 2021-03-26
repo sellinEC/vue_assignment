@@ -37,14 +37,14 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['login']),
+    ...mapActions(['login', 'saveEmail']),
     onSubmit() {
       if(this.email !== '' && this.password !== '') {
         let user = {
           email: this.email,
           password: this.password
         }
-
+        this.saveEmail(this.email)
         let route = this.$route.query.redirect
         this.login({user, route})
         // this.$router.replace(this.$route.query.redirect)
