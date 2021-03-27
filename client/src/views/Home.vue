@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-
+    <!-- <h1>Välkommen{{email}}</h1> -->
     <h1>HOMEPAGE under construction <br>
     Här ska det snurra lite produkter snart. Kanske i en karusell?</h1>
     <img class="sign" src="../assets/images/VG.png" alt="Reklam">
