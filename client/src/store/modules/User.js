@@ -50,7 +50,7 @@ export default {
             if(res.status === 200) {
               
               localStorage.setItem('token', res.data.token)
-              // localStorage.setItem('user', res.data)
+              localStorage.setItem('user', res.data.id)
               console.log(res.data)
               commit('SET_USER', res.data.token)
   
