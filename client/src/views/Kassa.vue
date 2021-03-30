@@ -3,15 +3,18 @@
     <div v-for="item in cart" :key="item.product._id">
       <div class="card">{{item.product.name}} x {{item.quantity}}</div>
     </div>
-    <button class="btn btn-info" @click="handleSave">CHeckout</button>
+    <button class="btn btn-info" @click="handleSave">Checkout</button>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 export default {
   computed: {
     ...mapGetters(['cart'])
+  },
+  methods: {
+    ...mapActions(['handleSave'])
   }
 }
 </script>

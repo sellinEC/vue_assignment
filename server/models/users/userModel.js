@@ -131,7 +131,7 @@ exports.updateUser = (req, res) => {
     User.findOne({email: req.body.email})
     .then(user => {
       console.log(user);
-        user.order.push(req.body.order)
+        user.orders.push(req.body.order)
         user.save(user)
         
     })

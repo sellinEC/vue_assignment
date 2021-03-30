@@ -8,7 +8,10 @@ export default {
       userEmail: null
     },
     getters: {
-      loggedIn: state => state.loggedIn
+      loggedIn: state => state.loggedIn,
+      getEmail(state) {
+        return state.userEmail
+      }
     },
     mutations: {
       SET_USER: (state, token) => {
@@ -37,6 +40,9 @@ export default {
       },
       SAVE_EMAIL: (state, email) => {
         state.userEmail = email
+      },
+      HANDLE_SAVE: (state) => {
+        console.log(state.userEmail);
       }
     },
     actions: {
@@ -80,6 +86,21 @@ export default {
       },
       saveEmail: ({commit}, email) => {
         commit('SAVE_EMAIL', email)
+      },
+      //Handle save - Skciakr email+order payload till backend. Email från lokal state med getter-funktion. cart[] från Cart.js modul via root-state  https://vuex.vuejs.org/guide/modules.html#module-local-state
+      handleSave: ({getters, rootState}) => {
+        let payload = {
+          email: getters.getEmail,
+          order: rootState.Cart.cart
+        }
+        console.log(payload);
+        axios.post('http://localhost:9999/api/users/order', payload)
+        .then(res => {
+         if(res.status === 200) {
+           console.log('order placed');
+         }
+        })
+
       }
     }
   }
