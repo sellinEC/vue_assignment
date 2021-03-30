@@ -130,7 +130,7 @@ exports.updateUser = (req, res) => {
   exports.saveOrder = (req, res) => {
     User.findOne({email: req.body.email})
     .then(user => {
-      // console.log(user);
+      //Söker user utifrån email, pushar order till arrayen orders i usern
         user.orders.push(req.body.order)
         user.save(user)
         
@@ -150,7 +150,7 @@ exports.updateUser = (req, res) => {
       })
     })
   }
-  //Hämtar en user vi sedan manipulerar fram en order ur
+  //Hämtar en user vi sedan hämtar order ur
   exports.getOrder = (req, res) => {
     User.findOne({email: req.body.email })
     .then(user => {

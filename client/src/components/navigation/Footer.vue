@@ -6,7 +6,7 @@
   
   <div class="card-body">
     <div class="dropdown">
-  <router-link to="/cart" class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+  <router-link to="/kassa" class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
     Till Kassan <i class="fas fa-shopping-cart"> </i> 
   </router-link>
 

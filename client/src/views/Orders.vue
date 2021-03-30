@@ -1,11 +1,11 @@
 <template>
-<div>
+<div class="container">
   <!-- deletefubnktion? -->
-  ORders!
+ 
   <div v-for="order in orders" :key="order.index">
-    Order:
-    <div v-for="item in order" :key="item.index">
-      <p>{{item.product.name}} x {{item.quantity}}</p>
+    <div class="container border">
+      <h6 class="text-start text-muted">Order#</h6>
+    <Order v-for="item in order" :key="item.index" :item="item"/>
     </div>
   </div>
 </div>
@@ -13,8 +13,11 @@
 
 <script>
 import {mapGetters, mapActions} from 'vuex'
+import Order from '../components/orders/Order'
 export default {
-  // props:['userEmail', 'orders'],
+  components: {
+    Order
+  },
   computed: {
     ...mapGetters(['orders', 'userEmail'])
   },
