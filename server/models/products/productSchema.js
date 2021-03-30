@@ -5,6 +5,7 @@ const productSchema = mongodb.Schema( {
   desc: {type: String, required: true},
   price: {type: Number, required: true},
   image: {type: String, required: true},
+  sale: {type: Boolean},
 
   created: {type: Date, default: Date.now()},
   modified: {type: Date, default: Date.now()}
