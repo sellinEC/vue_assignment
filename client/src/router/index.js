@@ -5,6 +5,7 @@ import Products from '../views/Products.vue'
 import Details from '../views/Details.vue'
 import fourofour from '../views/404.vue'
 import Kassa from '../views/Kassa.vue'
+import Orders from '../views/Orders.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 
@@ -37,6 +38,12 @@ const routes = [
     name: 'Kassa',
     component: Kassa,
     meta: { authorize: true }
+  },
+  {
+    path: '/orders',
+    name: 'Orders',
+    component: Orders,
+    // meta: { authorize: true }
   },
   {
     path: '/products/details/:id',

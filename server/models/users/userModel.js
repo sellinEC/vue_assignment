@@ -130,7 +130,7 @@ exports.updateUser = (req, res) => {
   exports.saveOrder = (req, res) => {
     User.findOne({email: req.body.email})
     .then(user => {
-      console.log(user);
+      // console.log(user);
         user.orders.push(req.body.order)
         user.save(user)
         
@@ -148,5 +148,14 @@ exports.updateUser = (req, res) => {
         status: false,
         message: 'Failed to place order'
       })
+    })
+  }
+  exports.getOrder = (req, res) => {
+    User.findOne({email: req.body.email })
+    .then(user => {
+      return res.status(200).json(user)
+    })
+    .catch(err => {
+      return res.status(500).json(err)
     })
   }

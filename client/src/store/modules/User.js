@@ -9,9 +9,12 @@ export default {
     },
     getters: {
       loggedIn: state => state.loggedIn,
+      //get state att använda i lokal funktion under actions
       getEmail(state) {
         return state.userEmail
-      }
+      },
+      //exporterar som prop till Orders.vue
+      userEmail: state => state.userEmail
     },
     mutations: {
       SET_USER: (state, token) => {
@@ -93,7 +96,7 @@ export default {
           email: getters.getEmail,
           order: rootState.Cart.cart
         }
-        console.log(payload);
+        // console.log(payload);
         axios.post('http://localhost:9999/api/users/order', payload)
         .then(res => {
          if(res.status === 200) {

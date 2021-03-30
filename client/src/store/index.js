@@ -4,6 +4,7 @@ import Products from './modules/Products'
 import Product from './modules/Product'
 import Cart from './modules/Cart'
 import User from './modules/User'
+import Orders from './modules/Orders'
 
 
 Vue.use(Vuex)
@@ -19,6 +20,7 @@ export default new Vuex.Store({
     Products,
     Product,
     Cart, 
-    User
+    User,
+    Orders
   }
 })

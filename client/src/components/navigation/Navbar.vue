@@ -76,7 +76,15 @@
           </a>
 
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            USER SETTINGS
+      <div class="p-2 d-flex justify-content-between align-items-center user-settings">
+      <div class="ms-2">
+        <div class="total-price">
+        <span class="ms-1">Användarnamn</span>
+        </div>
+      </div>
+
+      <router-link to="/orders" class="btn btn-info">akiva ordrar</router-link>
+    </div>
           </ul>
         </li>
         <li class="nav-item" v-if="!loggedIn">
@@ -130,5 +138,8 @@ export default {
 }
 .shopping-cart {
   min-width: 453px;
+}
+.user-settings {
+  min-width: 400px;
 }
 </style>
