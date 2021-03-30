@@ -150,6 +150,7 @@ exports.updateUser = (req, res) => {
       })
     })
   }
+  //Hämtar en user vi sedan manipulerar fram en order ur
   exports.getOrder = (req, res) => {
     User.findOne({email: req.body.email })
     .then(user => {

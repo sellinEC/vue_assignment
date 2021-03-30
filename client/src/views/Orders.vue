@@ -3,6 +3,7 @@
   <!-- deletefubnktion? -->
   ORders!
   <div v-for="order in orders" :key="order.index">
+    Order:
     <div v-for="item in order" :key="item.index">
       <p>{{item.product.name}} x {{item.quantity}}</p>
     </div>
@@ -18,12 +19,15 @@ export default {
     ...mapGetters(['orders', 'userEmail'])
   },
   methods: {
-    ...mapActions(['getOrders'])
+    ...mapActions(['getOrders', 'cleanup'])
   },
   created() {
+    //Hämtar ordrar från databas
     this.getOrders(this.userEmail)
-    // console.log(this.orders +"orders från orders.vue");
-    // console.log(this.userEmail +"från orders.vue");
+  },
+  //Städar arrayen vid sidbyte
+  destroyed() {
+    this.cleanup()
   }
 }
 </script>
