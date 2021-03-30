@@ -56,10 +56,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['register']),
+    ...mapActions(['register', 'saveEmail']),
     onSubmit(){
       if(this.user.firstName !== '' && this.user.lastName !== '' && this.user.email !== '' && this.user.password !== '') {
         this.register(this.user)
+        this.saveEmail(this.email)
       }
     }
   }

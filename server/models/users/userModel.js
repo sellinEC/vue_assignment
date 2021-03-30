@@ -127,3 +127,26 @@ exports.updateUser = (req, res) => {
       })
     })
   }
+  exports.saveOrder = (req, res) => {
+    User.findOne({email: req.body.email})
+    .then(user => {
+      console.log(user);
+        user.order.push(req.body.order)
+        user.save(user)
+        
+    })
+    .then(() => {
+      res.status(200).json({
+        statusCode:200,
+        status: true,
+        message: 'Order placed successfully'
+      })
+    })
+    .catch(() => {
+      res.status(500).json({
+        statusCode:500,
+        status: false,
+        message: 'Failed to place order'
+      })
+    })
+  }

@@ -3,7 +3,7 @@
     <div v-for="item in cart" :key="item.product._id">
       <div class="card">{{item.product.name}} x {{item.quantity}}</div>
     </div>
-    <button class="btn btn-info">Spara</button>
+    <button class="btn btn-info" @click="handleSave">CHeckout</button>
   </div>
 </template>
 
