@@ -13,7 +13,15 @@ export default {
         items += item.quantity
       })
       return items
+    },
+    totalPrice: state => {
+      let price = 0
+      state.cart.forEach(item => {
+        price += (item.quantity * item.product.price)
+      })
+      return price
     }
+
   },
   mutations: {
     ADD_ITEM_TO_CART: (state, {product, quantity}) => {
