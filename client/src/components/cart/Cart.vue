@@ -17,8 +17,11 @@
         </div>
         <small class="text-muted">inkl. moms</small>
       </div>
-
-      <router-link to="/kassa" class="btn btn-info">Gå till kassan</router-link>
+      
+      <div v-if="cart.length">
+      <router-link  to="/kassa" class="btn btn-info">Gå till kassan</router-link>
+      </div>
+      
     </div>
 
   </div>

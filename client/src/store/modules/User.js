@@ -45,8 +45,10 @@ export default {
         }
       },
       SAVE_EMAIL: (state, email) => {
-        state.userEmail = email
         sessionStorage.setItem('storedEmail', email)
+        //save-email tars från storage
+        state.userEmail = sessionStorage.getItem('storedEmail', email)
+        
       },
       HANDLE_SAVE: (state) => {
         console.log(state.userEmail);

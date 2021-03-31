@@ -62,6 +62,7 @@ export default {
         this.register(this.user)
         this.saveEmail(this.email)
       }
+      
     }
   }
 }

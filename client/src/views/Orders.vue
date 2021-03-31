@@ -8,6 +8,9 @@
     <Order v-for="item in order" :key="item.index" :item="item"/>
     </div>
   </div>
+  <div v-if="!orders.length">
+    <h1>No active orders</h1>
+  </div>
 </div>
 </template>
 
@@ -25,8 +28,9 @@ export default {
     ...mapActions(['getOrders', 'cleanup'])
   },
   created() {
-    //Hämtar ordrar från databas
-    this.getOrders(this.userEmail)
+    //Hämtar ordrar från databas (this.userEmail)
+    //alt: hämtyar från local session
+    this.getOrders(sessionStorage.getItem('storedEmail'))
   },
   //Städar arrayen vid sidbyte
   destroyed() {
