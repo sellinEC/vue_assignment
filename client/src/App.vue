@@ -8,10 +8,17 @@
 <script>
 import Navbar from './components/navigation/Navbar.vue'
 import Footer from './components/navigation/Footer.vue'
+import {mapActions} from 'vuex'
 export default {
  components: {
    Navbar,
    Footer
+ },
+ methods: {
+   ...mapActions(['checkUser'])
+ },
+ created() {
+   this.checkUser()
  }
 }
 </script>

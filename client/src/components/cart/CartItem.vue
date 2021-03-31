@@ -10,7 +10,7 @@
       </div>
       <div>
         <div class="btn-group btn-group-sm me-2" role="group" area-label="quantity">
-          <button class="btn btn-dark" @click.stop="item.quantity > 0 ? item.quantity-- : item.quantity">-</button>
+          <button class="btn btn-dark" @click.stop="item.quantity > 1 ? item.quantity-- : item.quantity">-</button>
           <button class="btn btn-dark" @click.stop="item.quantity++">+</button>
         </div>
         <button class="btn btn-danger btn-sm " @click.stop="deleteItem(item)"><i class="fas fa-trash"></i></button>

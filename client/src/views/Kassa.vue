@@ -17,7 +17,7 @@
   </div>
 </div>
     </div>
-    <button class="btn btn-info" @click="handleSave">Checkout</button>
+    <button to="/orders" class="btn btn-info" @click="handleSave">Checkout</button>
   </div>
 </template>
 

@@ -74,7 +74,8 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const { authorize } = to.meta
-  const token = localStorage.getItem('token')
+  const token = sessionStorage.getItem('token')
+  // const email = sessionStorage.getItem('storedEmail')
 
   if(authorize) {
 

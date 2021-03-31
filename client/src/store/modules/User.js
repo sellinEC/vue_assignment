@@ -10,8 +10,8 @@ export default {
     getters: {
       loggedIn: state => state.loggedIn,
       //get state att använda i lokal funktion under actions
-      getEmail(state) {
-        return state.userEmail
+      getEmail() {
+        return sessionStorage.getItem('userEmail')
       },
       //exporterar som prop till Orders.vue
       userEmail: state => state.userEmail
@@ -28,12 +28,15 @@ export default {
       },
       CHECK_USER: state => {
         try {
-          let token = localStorage.getItem('token')
+          let token = sessionStorage.getItem('token')
+          // let email = sessionStorage.getItem('storedEmail')
           if(token) {
             state.userToken = token
+            // state.userEmail = email
             state.loggedIn = true
           } else {
             state.userToken = null
+            // state.userEmail = null
             state.loggedIn = false
           }
         }
@@ -43,6 +46,7 @@ export default {
       },
       SAVE_EMAIL: (state, email) => {
         state.userEmail = email
+        sessionStorage.setItem('storedEmail', email)
       },
       HANDLE_SAVE: (state) => {
         console.log(state.userEmail);
@@ -62,7 +66,7 @@ export default {
           .then(res => {
             if(res.status === 200) {
               
-              localStorage.setItem('token', res.data.token)
+              sessionStorage.setItem('token', res.data.token)
               // localStorage.setItem('user', res.data._id)
               console.log(res.data)
               commit('SET_USER', res.data.token)
@@ -80,9 +84,9 @@ export default {
         commit('CHECK_USER')
       },
       logout: ({commit}) => {
-        let token = localStorage.getItem('token')
+        let token = sessionStorage.getItem('token')
         if(token) {
-          localStorage.removeItem('token')
+          sessionStorage.removeItem('token')
   
           commit('SET_USER', null)
         }
@@ -96,14 +100,24 @@ export default {
           email: getters.getEmail,
           order: rootState.Cart.cart
         }
-        // console.log(payload);
-        axios.post('http://localhost:9999/api/users/order', payload)
-        .then(res => {
-         if(res.status === 200) {
-           console.log('order placed');
-         }
-        })
-
-      }
-    }
+      
+        // payload.order = payload.order.filter(order => order.quantity !=0)
+        
+        if(payload.order.length) {
+          axios.post('http://localhost:9999/api/users/order', payload)
+          .then(res => {
+           if(res.status === 200) {
+             //"fördröjer" routen till orders - gör att vi kan se senaste ordern också
+            router.push('/orders')
+             console.log('order placed');
+           }
+          })
+        } 
+      //   else {
+      //     console.log('funkar inte');
+      //     alert('No go')
+      //   console.log(payload);
+      // }
+    } 
   }
+}
