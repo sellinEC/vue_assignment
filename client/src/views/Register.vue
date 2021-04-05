@@ -6,8 +6,8 @@
       <div class="row mb-4">
         <div class="col">
           <div class="form-outline">
-            <input type="text" id="form3Example1" class="form-control border-bottom" v-model="user.firstName"/>
-            <label class="form-label" for="form3Example1">First name</label>
+            <input type="text" id="" class="form-control border-bottom" v-model="user.firstName"/>
+            <label class="form-label" for="">First name</label>
           </div>
         </div>
         <div class="col">
@@ -56,11 +56,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['register', 'saveEmail']),
+    ...mapActions(['register']),
     onSubmit(){
       if(this.user.firstName !== '' && this.user.lastName !== '' && this.user.email !== '' && this.user.password !== '') {
         this.register(this.user)
-        this.saveEmail(this.email)
       }
       
     }

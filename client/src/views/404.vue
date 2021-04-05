@@ -14,6 +14,6 @@ export default {
 <style>
 .fyraNollFyra {
   min-height: 701px;
-  border: solid red; /* !!! Provisorisk border !!!  */
+
 }
 </style>

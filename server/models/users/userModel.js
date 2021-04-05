@@ -71,6 +71,7 @@ exports.loginUser = (req, res) => {
           message: 'Incorrect email or password'
         })
       }
+     
 
       try {
         bcrypt.compare(req.body.password, user.passwordHash, (err, result) => {
@@ -84,8 +85,11 @@ exports.loginUser = (req, res) => {
                 statusCode: 200,
                 status: true,
                 message: 'Authentication was successful',
-                token: auth.generateToken(user)
+                token: auth.generateToken(user),
+                email: user.email,
+                firstName: user.firstName,
               })
+              
             }
             return res.status(401).json({
               statusCode: 401,
@@ -159,4 +163,19 @@ exports.updateUser = (req, res) => {
     .catch(err => {
       return res.status(500).json(err)
     })
+  }
+
+  exports.isAdmin = (req, res) => {
+    User.findOne({email: req.body.email })
+    .then(user => {
+      if(user.isAdmin) {
+        return res.status(200).json('admin')
+      }else {
+        return res.status(200).json(null)
+      }
+    })
+    .catch(err => {
+      return res.status(500).json(err)
+    })
+    
   }

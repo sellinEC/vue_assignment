@@ -1,5 +1,5 @@
 <template>
-<div class="container  hover-shadow p-4">
+<div class="container  hover-shadow p-4 border">
  <router-link :to="'/products/details/' + product._id">
 <div class="product">
 <div class="">
@@ -18,7 +18,7 @@
       {{product.short}}
     </p>
     <p class="card-text">
-      ${{product.price}}
+      {{product.price}} kr
     </p>
     
     
@@ -48,7 +48,7 @@ export default {
 
 <style scoped>
 div {
-  border: solid red 1px; /* !!! Provisorisk border !!!  */
+ 
 }
 .image-width{
   max-width: 200px;

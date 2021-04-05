@@ -1,10 +1,9 @@
 <template>
-  <div class="admin">
-    <h1>Admin!</h1>
-    <p>Admin page under construction</p>
+<div>
+  <h1>Path restricted</h1>
+  <p>Please login as administrator</p>
   </div>
 </template>
-
 
 <script>
 export default {

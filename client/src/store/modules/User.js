@@ -1,20 +1,24 @@
 import axios from 'axios'
 import router from '@/router'
+// import { isAdmin } from '../../../../server/models/users/userModel'
 
 export default {
     state: {
       userToken: null,
       loggedIn: false,
-      userEmail: null
+      message: '',
+      firstName: null,
     },
     getters: {
       loggedIn: state => state.loggedIn,
       //get state att använda i lokal funktion under actions
       getEmail() {
-        return sessionStorage.getItem('userEmail')
+        return sessionStorage.getItem('storedEmail')
       },
       //exporterar som prop till Orders.vue
-      userEmail: state => state.userEmail
+      // userEmail: state => state.userEmail,
+      message: state => state.message,
+      firstName: state => state.firstName = sessionStorage.getItem('firstName'),
     },
     mutations: {
       SET_USER: (state, token) => {
@@ -45,13 +49,11 @@ export default {
         }
       },
       SAVE_EMAIL: (state, email) => {
-        sessionStorage.setItem('storedEmail', email)
-        //save-email tars från storage
-        state.userEmail = sessionStorage.getItem('storedEmail', email)
+        state.userEmail = email
         
       },
-      HANDLE_SAVE: (state) => {
-        console.log(state.userEmail);
+      ERROR_MSG: (state) => {
+        state.message = 'User or email incorrect'
       }
     },
     actions: {
@@ -69,15 +71,19 @@ export default {
             if(res.status === 200) {
               
               sessionStorage.setItem('token', res.data.token)
-              // localStorage.setItem('user', res.data._id)
+              //sparar email till session storage
+              sessionStorage.setItem('storedEmail', res.data.email)
+              sessionStorage.setItem('firstName', res.data.firstName)
               console.log(res.data)
               commit('SET_USER', res.data.token)
-  
+              
               if(payload.route) {
                 router.push(payload.route)
               } else {
                 router.push('/')
               }
+            }else {
+              commit('ERROR_MSG')
             }
           })
 
@@ -87,15 +93,16 @@ export default {
       },
       logout: ({commit}) => {
         let token = sessionStorage.getItem('token')
+        // let email = sessionStorage.getItem('storedEmail')
         if(token) {
           sessionStorage.removeItem('token')
-  
+          sessionStorage.removeItem('storedEmail')
           commit('SET_USER', null)
         }
+        router.push('/')
+        document.location.reload(true)
       },
-      saveEmail: ({commit}, email) => {
-        commit('SAVE_EMAIL', email)
-      },
+    
       //Handle save - Skciakr email+order payload till backend. Email från lokal state med getter-funktion. cart[] från Cart.js modul via root-state  https://vuex.vuejs.org/guide/modules.html#module-local-state
       handleSave: ({getters, rootState}) => {
         let payload = {
@@ -111,7 +118,7 @@ export default {
            if(res.status === 200) {
              //"fördröjer" routen till orders - gör att vi kan se senaste ordern också
             router.push('/orders')
-             console.log('order placed');
+            console.log('order placed');
            }
           })
         } 

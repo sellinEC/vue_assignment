@@ -1,13 +1,13 @@
 <template>
-  <div class="card bg-info"> <!--  Styling footer color  -->
+  <div class="card bg-success"> <!--  Styling footer color  -->
   <div class="card-footer shadow"> <!--  Styling footer reklambanner  -->
-    <img src="../../assets/images/footer.png" alt="Reklam">
+    <!-- <img src="../../assets/images/footer.png" alt="Reklam"> -->
   </div>
   
   <div class="card-body">
     <div class="dropdown">
   <router-link to="/kassa" class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-    Till Kassan <i class="fas fa-shopping-cart"> </i> 
+    Checkout <i class="fas fa-shopping-cart"> </i> 
   </router-link>
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -17,7 +17,7 @@
   </ul>
 </div>
 <br>
-<div class="copyR">&copy; {{ new Date().getFullYear() }} House of Power</div>
+<div class="copyR text-white">&copy; {{ new Date().getFullYear() }} Webshoop</div>
 </div>
 </div>
 </template>
@@ -29,7 +29,5 @@ export default {
 </script>
 
 <style> 
-.card {
-  border: solid red; /* !!! Provisorisk border !!!  */
-}
+
 </style>

@@ -1,25 +1,32 @@
 <template>
   <div class="home">
-    <!-- <h1>Välkommen{{email}}</h1> -->
-    <h1>HOMEPAGE under construction <br>
-    Här ska det snurra lite produkter snart. Kanske i en karusell?</h1>
-    <img class="sign" src="../assets/images/VG.png" alt="Reklam">
+    <!-- <div v-show="userEmail">
+    <h1>Välkommen{{userEmail}}</h1>
+    </div> -->
     
-    <!-- Länkar, behövs ej -->
-    <!-- <router-link to="/about">about</router-link>
-    <router-link to="/products">products</router-link>
-    <router-link to="/cart">Cart</router-link> -->
+    
+    <div class="jumbo text-success my-5 mx-auto">
+    <h1 v-if="loggedIn">Welcome to the shop {{firstName}}</h1>
+    <h1 v-else>Welcome to the shop</h1>
+    <div class="bread my-5">
+      <router-link to="/products" class="btn btn-success p-2 mx-2">Browse products</router-link>
+      <router-link to="/orders" class="btn btn-success p-2 mx-2" v-if="loggedIn">View orders</router-link>
+    </div>
+    </div>
 
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import {mapGetters} from 'vuex'
 export default {
   name: 'Home',
   components: {
     
+  },
+  computed: {
+    ...mapGetters(['loggedIn', 'firstName'])
   }
 }
 </script>
@@ -30,7 +37,7 @@ export default {
 
   .home {
     min-height: 701px;
-    border: solid red; /* !!! Provisorisk border !!!  */
+   
   }
   .sign {
     max-height: 600px; 

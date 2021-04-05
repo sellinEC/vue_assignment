@@ -1,23 +1,25 @@
 <template>
-  <div class="kassa">
+  <div class="kassa container mt-5">
     <div v-for="item in cart" :key="item.product._id">
-      <div class="card">
+      <div class="container d-flex align-items-center justify-content-center border">
   <img
     :src="item.product.image"
-    class="card-img-top size"
+    class="card-img-top size img-fluid"
     alt="..."
   />
-  <div class="card-body">
+  <div class="d-flex m-3">
     <h5 class="card-title">{{item.product.name}}</h5>
-    <p class="card-text">{{item.product.short}}</p>
-    <p class="card-text">
-      {{item.quantity}}
-    </p>
-    <a href="#!" class="btn btn-danger" @click="deleteItem">DELETE</a>
+    
+    <div class="card-text mx-3">
+      <p class="mx-1">x {{item.quantity}}</p>
+    </div>
+    <i class="far fa-trash-alt text-danger" @click="deleteItem"></i>
   </div>
 </div>
     </div>
-    <button to="/orders" class="btn btn-info" @click="handleSave">Checkout</button>
+    <div class="text-end">Total: {{totalPrice}} kr</div>
+  
+    <button class="btn btn-success mt-5" @click="handleSave">Checkout</button>
   </div>
 </template>
 
@@ -25,10 +27,13 @@
 import {mapGetters, mapActions} from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['cart'])
+    ...mapGetters(['cart', 'totalPrice'])
   },
   methods: {
-    ...mapActions(['handleSave', 'deleteItem'])
+    ...mapActions(['handleSave', 'deleteItem', 'clearCart'])
+  },
+  destroyed() {
+    this.clearCart()
   }
 }
 </script>
@@ -43,4 +48,9 @@ export default {
 img{
   max-width: 60px;
 }
+.far {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 </style>

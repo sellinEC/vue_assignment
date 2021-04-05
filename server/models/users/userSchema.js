@@ -6,6 +6,7 @@ const userSchema = mongodb.Schema({
   lastName:     { type: String, required: true },
   email:        { type: String, required: true, unique: true },
   orders:       { type: Array },
+  isAdmin:      {type: Boolean, default: false},
   passwordHash: { type: String, required: true },
 
   

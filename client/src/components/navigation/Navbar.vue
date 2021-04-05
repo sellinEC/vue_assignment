@@ -1,11 +1,11 @@
 <template>
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success p-3">
   <!-- Container wrapper -->
   <div class="container">
     <!-- Navbar brand -->
     <router-link class="navbar-brand" to="/">
-      <i class="fas fa-gopuram"></i> HOUSE OF POWER <!-- Byt logga vid styling  -->
+      <i class="fas fa-money-bill-wave mx-2"></i> Webshoop <!-- Byt logga vid styling  -->
     </router-link>
 
     <!-- Toggle button -->
@@ -22,7 +22,7 @@
     </button>
 
     <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse mx-2" id="navbarSupportedContent">
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -37,6 +37,9 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/about">About Us</router-link>
         </li>
+        <!-- <li class="nav-item">
+          <router-link v-if="isAdmin" class="nav-link" to="/admin">Admin</router-link>
+        </li> -->
 
 
 
@@ -72,18 +75,18 @@
             data-mdb-toggle="dropdown"
             aria-expanded="false"
           >
-            <i class="fab fa-accessible-icon"></i>
+            <i class="fas fa-wrench"></i>
           </a>
 
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
       <div class="p-2 d-flex justify-content-between align-items-center user-settings">
       <div class="ms-2">
         <div class="total-price">
-        <span class="ms-1">Användarnamn</span>
+        <span class="ms-1">{{firstName}}</span>
         </div>
       </div>
 
-      <router-link to="/orders" class="btn btn-info">akiva ordrar</router-link>
+      <router-link to="/orders" class="btn btn-success">active orders</router-link>
     </div>
           </ul>
         </li>
@@ -115,7 +118,7 @@ export default {
     Cart
   },
   computed: {
-    ...mapGetters(['cartCount', 'loggedIn'])
+    ...mapGetters(['cartCount', 'loggedIn', 'firstName'])
 
   },
   methods: {
@@ -125,12 +128,20 @@ export default {
 </script>
 
 <style scoped>
+.navbar {
+  /* background-color: green; */
+  color: #fff;
+}
 .navbar .nav-item {
-  border: solid red; /* !!! Provisorisk border !!!  */
+  color: #fff
 }
 
 .fa-shopping-cart {
-  color: green;
+  color: white;
+  font-size: 1.5rem;
+}
+.fas {
+  color: white;
   font-size: 1.5rem;
 }
 .badge {

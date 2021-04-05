@@ -4,7 +4,7 @@
       <div class="cart-item">
         <CartItem v-for="item in cart" :key="item.product._id" :item="item" />
       <div v-if="cart.length < 1" class="p-2 d-flex justify-content-center align-items-center">
-        Din kundvagn är tom.
+       Your cart is empty
       </div>
       <div class="dropdown-divider"></div>
     </div>
@@ -13,13 +13,13 @@
     <div class="p-2 d-flex justify-content-between align-items-center">
       <div class="ms-2">
         <div class="total-price">
-          Totalt: <span class="ms-1">{{totalPrice}}</span>
+          Total: <span class="ms-1">{{totalPrice}} kr</span>
         </div>
-        <small class="text-muted">inkl. moms</small>
+        <small class="text-muted">with taxes</small>
       </div>
       
       <div v-if="cart.length">
-      <router-link  to="/kassa" class="btn btn-info">Gå till kassan</router-link>
+      <router-link  to="/kassa" class="btn btn-success">Go to checkout</router-link>
       </div>
       
     </div>
