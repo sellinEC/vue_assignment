@@ -6,6 +6,7 @@ export default {
     state: {
       userToken: null,
       loggedIn: false,
+      //Tanken var att exportera message till login och funakde det återanvända där det kändes vettigt med variabla meddelanden
       message: '',
       firstName: null,
     },
@@ -52,8 +53,8 @@ export default {
         state.userEmail = email
         
       },
-      ERROR_MSG: (state) => {
-        state.message = 'User or email incorrect'
+      ERROR_MSG: (state, message) => {
+        state.message = message
       }
     },
     actions: {
@@ -76,6 +77,7 @@ export default {
               sessionStorage.setItem('firstName', res.data.firstName)
               console.log(res.data)
               commit('SET_USER', res.data.token)
+              console.log(res.data.message);
               
               if(payload.route) {
                 router.push(payload.route)
@@ -83,7 +85,10 @@ export default {
                 router.push('/')
               }
             }else {
-              commit('ERROR_MSG')
+              //Varför funkar inte detta vid fel inlogg?? Får ut message när inlogg är success men inte på fail. Testat === 404 och ren else och allt möjligt.
+              console.log('hej');
+              console.log(res.data.message);
+              // commit('ERROR_MSG', res.data.message)
             }
           })
 
